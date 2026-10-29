@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050b16">
+<meta name="description" content="LEO AI personal assistant web app">
+<link rel="manifest" href="manifest.webmanifest">
+<title>LEO AI</title>
+<style>
+:root{--bg:#050b16;--panel:#0b1628;--panel2:#101f35;--blue:#35b9ff;--cyan:#7be7ff;--muted:#91a6c0;--line:#1c3554}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#12345b 0,#071225 38%,var(--bg) 72%);color:#edf7ff;font-family:system-ui,-apple-system,"Noto Sans Myanmar",sans-serif;min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:18px 14px 40px}.top{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900;letter-spacing:3px;font-size:22px}.brand span{color:var(--blue)}.sub{font-size:11px;color:var(--muted);letter-spacing:2px}.status{font-size:12px;color:var(--cyan);border:1px solid #1d5b83;border-radius:20px;padding:7px 11px;background:#08213a}
+.hero{text-align:center;padding:25px 0 18px}.orb{width:142px;height:142px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;background:radial-gradient(circle at 40% 35%,#b8f7ff,#168ad6 25%,#092c60 58%,#061326 72%);box-shadow:0 0 25px #168ad688,0 0 70px #147bd344,inset 0 0 22px #b9f7ff66;position:relative}.orb:after{content:"";position:absolute;inset:-9px;border:1px solid #35b9ff66;border-radius:50%;box-shadow:0 0 18px #35b9ff44}.orb b{font-size:42px;color:white;text-shadow:0 0 15px #fff}.hero h1{font-size:30px;letter-spacing:5px;margin:5px}.hero p{color:var(--muted);font-size:13px;margin:4px}
+.controls{display:flex;gap:10px;justify-content:center;margin:18px 0}.btn{border:1px solid var(--line);border-radius:14px;padding:13px 17px;background:var(--panel2);color:#eaf8ff;font-weight:700;font-size:14px}.btn.primary{background:linear-gradient(135deg,#087ec1,#1649a2);border-color:#43caff;box-shadow:0 0 20px #087ec144}.btn:disabled{opacity:.45}
+.card{background:linear-gradient(150deg,#0d1b30ee,#091426ee);border:1px solid var(--line);border-radius:18px;padding:15px;margin:13px 0;box-shadow:0 10px 35px #0003}.card h2{font-size:15px;margin:0 0 11px;color:var(--cyan)}.chat{height:260px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:3px}.msg{max-width:88%;padding:11px 13px;border-radius:14px;font-size:14px;line-height:1.55;white-space:pre-wrap}.bot{background:#102943;border:1px solid #1b4d70;align-self:flex-start}.user{background:#123e70;align-self:flex-end}.composer{display:flex;gap:8px;margin-top:10px}.composer input{min-width:0;flex:1}.input{background:#061020;border:1px solid #244361;border-radius:12px;color:white;padding:12px;font-size:14px;width:100%}.hint{font-size:11px;color:var(--muted);line-height:1.5;margin-top:9px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.tile{display:block;text-decoration:none;color:#eaf8ff;background:#0c2038;border:1px solid #1e4265;border-radius:13px;padding:13px;font-size:13px}.tile strong{display:block;color:var(--cyan);margin-bottom:4px}.small{font-size:11px;color:var(--muted)}.footer{text-align:center;color:#6e87a4;font-size:11px;padding:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><div><div class="brand">LEO<span> AI</span></div><div class="sub">YOUR PERSONAL ASSISTANT</div></div><div class="status" id="status">● OFF</div></div>
+ <section class="hero"><div class="orb"><b>L</b></div><h1>LEO AI</h1><p>Always ready when you need me.</p></section>
+ <div class="controls"><button class="btn primary" id="toggle">⏻ TURN ON</button><button class="btn" id="speak" disabled>🎙 SPEAK</button></div>
+ <section class="card"><h2>စကားပြော / CHAT</h2><div class="chat" id="chat"><div class="msg bot">မင်္ဂလာပါ။ ကျွန်တော် LEO ပါ။ AI ကို ON လုပ်ပြီး စာရိုက်မေးနိုင်ပါတယ်။ အသံနဲ့ပြောဖို့ SPEAK ကိုနှိပ်ပါ။</div></div><div class="composer"><input class="input" id="prompt" placeholder="LEO ကို မေးချင်တာ ရိုက်ပါ..." /><button class="btn primary" id="send">ပို့မယ်</button></div><div class="hint">မှတ်ချက် - ဒီပထမဗားရှင်းမှာ အခြေခံအမိန့်များ၊ အသံဖတ်ပြခြင်းနဲ့ ဖုန်း App shortcut များ ပါဝင်ပါတယ်။ အဆင့်မြင့် AI အဖြေများအတွက် နောက်ပိုင်းတွင် အခမဲ့ AI ဝန်ဆောင်မှုတစ်ခု ချိတ်ဆက်ရပါမယ်။</div></section>
+ <section class="card"><h2>ဖုန်းထဲက ဝန်ဆောင်မှုများ</h2><div class="grid">
+  <a class="tile" href="https://www.google.com" target="_blank"><strong>🌐 Google Search</strong><span class="small">အင်တာနက်ရှာဖွေရန်</span></a>
+  <a class="tile" href="https://www.youtube.com" target="_blank"><strong>▶ YouTube</strong><span class="small">ဗီဒီယိုကြည့်ရန်</span></a>
+  <a class="tile" href="https://www.canva.com" target="_blank"><strong>🎨 Canva</strong><span class="small">ပုံ / ဒီဇိုင်းဖန်တီးရန်</span></a>
+  <a class="tile" href="https://www.capcut.com" target="_blank"><strong>🎬 CapCut</strong><span class="small">Video တည်းဖြတ်ရန်</span></a>
+  <a class="tile" href="https://chatgpt.com" target="_blank"><strong>🧠 ChatGPT</strong><span class="small">AI အကူအညီ</span></a>
+  <a class="tile" href="https://www.google.com/imghp" target="_blank"><strong>🖼 Image Search</strong><span class="small">ပုံရှာဖွေရန်</span></a>
+ </div></section>
+ <div class="footer">LEO AI · Free starter version · AI ON လုပ်ထားချိန်မှသာ chat အသုံးပြုနိုင်သည်</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);let on=false,recognition=null;
+function status(){ $('status').textContent=on?'● ON':'● OFF';$('status').style.color=on?'#7be7ff':'#91a6c0';$('toggle').textContent=on?'⏻ TURN OFF':'⏻ TURN ON';$('speak').disabled=!on; }
+function add(text,who){const d=document.createElement('div');d.className='msg '+who;d.textContent=text;$('chat').appendChild(d);$('chat').scrollTop=$('chat').scrollHeight;}
+function say(t){if(!('speechSynthesis'in window))return; speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='my-MM';u.rate=1; speechSynthesis.speak(u);}
+function answer(q){let s=q.toLowerCase();if(s.includes('မင်္ဂလာ')||s.includes('hello')||s.includes('hi'))return 'မင်္ဂလာပါ။ ဘာကူညီပေးရမလဲ။';if(s.includes('အချိန်')||s.includes('time'))return 'ဖုန်းရဲ့ အချိန်ကို ကြည့်ပေးပါ။ ဒီဗားရှင်းမှာ အချိန်တိုက်ရိုက်ဖတ်ခြင်း မထည့်ရသေးပါ။';if(s.includes('youtube')){window.open('https://www.youtube.com','_blank');return 'YouTube ကို ဖွင့်ပေးလိုက်ပါတယ်။';}if(s.includes('google')||s.includes('ရှာ')){window.open('https://www.google.com','_blank');return 'Google Search ကို ဖွင့်ပေးလိုက်ပါတယ်။';}if(s.includes('ပုံ')||s.includes('image'))return 'ပုံဖန်တီးဖို့ Canva ကို အသုံးပြုနိုင်ပါတယ်။ အောက်က Canva ခလုတ်ကိုနှိပ်ပါ။';if(s.includes('video')||s.includes('ဗီဒီယို'))return 'Video တည်းဖြတ်ဖို့ CapCut ကို ဖွင့်နိုင်ပါတယ်။ အောက်က CapCut ခလုတ်ကိုနှိပ်ပါ။';return 'သင့်မေးခွန်းကို လက်ခံရရှိပါပြီ။ ဒီ Starter Version မှာ အဆင့်မြင့် AI ဦးနှောက်/API မချိတ်ဆက်ရသေးပါ။ နောက်တစ်ဆင့်မှာ အခမဲ့ AI ဝန်ဆောင်မှုနဲ့ ချိတ်ဆက်ပေးပါမယ်။';}
+function send(){if(!on){add('အရင်ဆုံး AI ကို ON လုပ်ပါ။','bot');return;}let q=$('prompt').value.trim();if(!q)return;$('prompt').value='';add(q,'user');let a=answer(q);setTimeout(()=>{add(a,'bot');say(a)},250);}
+$('toggle').onclick=()=>{on=!on;if(!on&&recognition){try{recognition.stop()}catch(e){}}status();add(on?'LEO အဆင်သင့်ဖြစ်ပါပြီ။ ဘာကူညီပေးရမလဲ။':'LEO ကို ပိတ်လိုက်ပါပြီ။ ပြန်အသုံးပြုချင်ရင် ON လုပ်ပါ။','bot');};
+$('send').onclick=send;$('prompt').addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+$('speak').onclick=()=>{if(!on)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){add('ဒီ Browser မှာ Voice Recognition မရနိုင်ပါ။ Chrome မှာ စမ်းကြည့်ပါ။','bot');return;}recognition=new SR();recognition.lang='my-MM';recognition.interimResults=false;recognition.onresult=e=>{$('prompt').value=e.results[0][0].transcript;send()};recognition.onerror=()=>add('အသံဖမ်းယူမှု မအောင်မြင်ပါ။ Microphone permission စစ်ပါ။','bot');recognition.start();};
+status();
+if('serviceWorker'in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>

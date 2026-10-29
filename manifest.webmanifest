@@ -1,0 +1,10 @@
+{
+  "name": "LEO AI Personal Assistant",
+  "short_name": "LEO AI",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050b16",
+  "theme_color": "#050b16",
+  "description": "Free personal AI assistant starter web app",
+  "icons": []
+}
